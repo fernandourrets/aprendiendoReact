@@ -1,0 +1,221 @@
+
+.row{
+    margin-top: 50px;
+    margin-bottom: 100px;
+    
+  }
+  
+  
+  #fieldSet{
+  
+    border: 3px solid white;       
+    border-radius: 10px;    
+    
+    
+  }
+  
+  .reset {
+    all: revert;
+  }
+  
+  #flex {
+   
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+     justify-content: center;
+     padding-bottom: 50px;
+    padding-top: 50px;
+    
+ 
+    
+  }
+  
+  
+  
+  
+  h1{
+      color: whitesmoke;
+      border-bottom-style: solid;
+      font-style:oblique;
+  }
+  
+  
+  
+  
+  h2 {
+      color: whitesmoke;
+      font-style:oblique;  
+  }
+  
+  h3 {
+    color: grey;
+    font-style:oblique;  
+  }
+  
+
+  
+  
+  #formCliente{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(116, 204, 233);
+    box-shadow: 0px 0px 10px 0px grey;
+    border-radius: 10px;
+    color: grey;
+    gap: 1%;
+    flex-wrap: wrap;
+    width: 95%;
+    padding: 20px;
+    margin-bottom: 30px;
+   
+    
+  }
+
+
+   
+  #formNuevoLavado{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(116, 204, 233);
+    box-shadow: 0px 0px 10px 0px grey;
+    border-radius: 10px;
+    color: grey;
+    gap: 1%;
+    flex-wrap: wrap;
+    width: 70%;
+    padding: 20px;
+    margin-bottom: 30px;
+   
+    
+  }
+  
+  .borde{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: whitesmoke;
+    box-shadow: 0px 0px 10px 0px grey;
+    border-radius: 10px;
+    color: grey;
+    padding: 12px;
+    width: 95%;
+    gap: 1%;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    
+    
+    
+  }
+  
+  .table-responsive{
+    font-size: medium;
+    font-style:normal;
+    border-radius: 8px;
+    
+  }
+
+ #completo {
+ 
+  margin-right: 5px;
+ }
+
+ .form-check{
+  margin-left: 5px;
+  margin-right: 5px;
+ }
+
+ select{
+    margin: 5px;
+ }
+  
+  .burbujas{
+    animation: shake 3s ease-in-out infinite;
+    
+  } 
+  
+  
+  
+          body {
+             
+              
+              background-color: rgb(9, 97, 168);
+              margin: 0;
+             
+          }
+  
+     
+  
+ 
+      
+  
+          label {
+              
+              
+              font-weight: bold;
+              color: gray;
+              font-style:oblique;
+              margin-top: 5px;
+              
+             
+          }
+
+        
+          textarea{
+            margin-top: 10px;
+            margin-left: 10px;
+          }
+          
+  
+          .my-input {
+              
+              padding: 12px;
+              border: 1px solid grey;
+              /* Esquinas redondeadas */
+              border-radius: 8px;
+              font-size: 16px;
+              box-sizing: border-box; /* Incluye padding y border en el tamaño total */
+              transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+              color: gray;
+              margin-top: 10px;
+              margin-right: 5px;
+              
+              
+              
+          }
+  
+          /* Estilo para el input cuando está enfocado (clic) */
+          .my-input:focus {
+              outline: none; /* Elimina el contorno por defecto del navegador */
+              border-color: rgb(9, 97, 168); /* Azul claro para el borde */
+              /* box-shadow: 0 0 0 3px rgba(135, 206, 235, 0.5); Sombra suave azul claro */
+              box-shadow: 0 0 0 2px rgb(65, 154, 226);
+          }
+  
+          .my-buttonNuevoTurno {
+              background-color: grey;
+              color: white;
+             
+              box-shadow: 0px 0px 10px 0px grey;
+              border-radius: 5px;
+              cursor: pointer;
+              font-size: 16px;
+              width: 30%;
+              
+             
+             border: 2px solid whitesmoke;
+            
+              
+          }
+  
+          .my-buttonNuevoTurno:hover {
+              background-color: green;
+          }
+  
+      

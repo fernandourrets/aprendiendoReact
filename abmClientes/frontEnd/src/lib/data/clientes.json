@@ -1,0 +1,57 @@
+[
+    {
+        "dni": 1,
+        "nom": "João",
+        "ape": "Silva",
+        "cat": "motocicleta"
+        
+      
+        
+    },
+    {
+        "dni": 2,
+        "nom": "Pedro",
+        "ape": "Alvarez",
+        "cat": "utilitario"
+       
+        
+    },
+    {
+        "dni": 3,
+        "nom": "Alberto",
+        "ape": "Cernadas",
+        "cat": "automovil"
+        
+        
+
+    },
+    {
+        "dni": 4,
+        "nom": "Martin",
+        "ape": "Solaris",
+        "cat": "automovil"
+       
+
+        
+
+    },
+    {
+        "dni": 5,
+        "nom": "Jeremias",
+        "ape": "Gertrovich",
+        "cat": "motocicleta"
+       
+        
+
+    },
+    {
+        "dni": 6,
+        "nom": "Luis",
+        "ape": "Bernardino",
+        "cat": "utilitario"
+        
+        
+
+    }
+    
+]

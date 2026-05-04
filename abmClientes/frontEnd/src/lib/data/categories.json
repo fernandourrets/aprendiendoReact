@@ -1,0 +1,17 @@
+[
+    {
+        "id": 1,
+        "name": "automovil",
+        "label": "Automovil"
+    },
+    {
+        "id": 2,
+        "name": "motocicleta",
+        "label": "Motocicleta"
+    },
+    {
+        "id": 3,
+        "name": "utilitario",
+        "label": "Utilitario"
+    }
+]

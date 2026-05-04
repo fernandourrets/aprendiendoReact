@@ -1,0 +1,221 @@
+
+
+.row{
+    margin-top: 50px;
+    margin-bottom: 100px;
+    
+  }
+  
+  
+  #fieldSet{
+  
+    border: 3px solid white;       
+    border-radius: 10px;    
+    
+    
+  }
+  
+  .reset {
+    all: revert;
+  }
+  
+  #flex {
+   
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;  
+      padding-bottom: 50px;
+      padding-top: 50px;
+    
+  }
+  
+
+  
+  
+  h1{
+      color: whitesmoke;
+      border-bottom-style: solid;
+      font-style:oblique;
+      margin-top: 10px;
+      margin-bottom: 20px;
+  
+  }
+  
+  
+  
+  
+  h2 {
+      color: whitesmoke;
+      font-style:oblique;  
+  }
+  
+  h3 {
+    color: grey;
+    font-style:oblique;  
+  }
+  
+  #formCliente{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: rgb(116, 204, 233);
+    box-shadow: 0px 0px 10px 0px grey;
+    border-radius: 10px;
+    color: grey;
+    padding: 50px;
+    margin-bottom: 15px;
+    
+  }
+  
+  
+  #formVehiculo{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    flex-wrap: wrap;
+    background-color: rgb(116, 204, 233);
+    box-shadow: 0px 0px 10px 0px grey;
+    border-radius: 10px;
+    color: grey;
+    padding: 60px;
+    margin-bottom: 15px;
+    
+    
+  }
+  
+  .borde{
+    display: flex;
+    flex-direction: column;
+    background-color: whitesmoke;
+    box-shadow: 0px 0px 10px 0px grey;
+    border-radius: 10px;
+    color: grey;
+    padding: 12px;
+    margin-bottom: 20px;
+  }
+
+  .borde2{
+    display: flex;
+    flex-direction: column;
+    
+    background-color: whitesmoke;
+    box-shadow: 0px 0px 20px 0px grey;
+    border-radius: 10px;
+    color: grey;
+    padding: 20px;
+    margin-top: 20px;
+    margin-left: 30px;
+  }
+
+  
+  input[type="radio"] + label {
+    
+    width: 15px;
+    height: 15px;
+    float: left;
+    margin: 0.5em 0.5em 0 0;
+    border-radius: 100%;
+    
+    
+  }
+  
+  
+  
+  
+  .burbujas{
+    animation: shake 3s ease-in-out infinite;
+    
+  } 
+  
+  
+  
+          body {
+             
+              
+              background-color: rgb(9, 97, 168);
+              margin: 0;
+             
+          }
+  
+     
+  
+     select{
+      margin-bottom: 25px;
+     }
+      
+  
+          label {
+             
+              margin-bottom: 5px;
+              font-weight: bold;
+              color: gray;
+              font-style:oblique;
+              margin-top: 5px;
+              
+             
+          }
+  
+          
+  
+          .my-input {
+              
+              padding: 12px;
+              border: 1px solid grey;
+              /* Esquinas redondeadas */
+              border-radius: 8px;
+              font-size: 16px;
+              box-sizing: border-box; /* Incluye padding y border en el tamaño total */
+              transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+              color: gray;
+              margin-bottom: 15px;
+          }
+  
+          /* Estilo para el input cuando está enfocado (clic) */
+          .my-input:focus {
+              outline: none; /* Elimina el contorno por defecto del navegador */
+              border-color: rgb(9, 97, 168); /* Azul claro para el borde */
+              /* box-shadow: 0 0 0 3px rgba(135, 206, 235, 0.5); Sombra suave azul claro */
+              box-shadow: 0 0 0 2px rgb(65, 154, 226);
+          }
+  
+          .my-buttonPers {
+              background-color: grey;
+              color: white;
+              padding: 12px 20px;
+              /* border: none; */
+              border-radius: 5px;
+              cursor: pointer;
+              font-size: 16px;
+              width: 50%;
+              margin-top: 10px;
+             margin-left: 50px;
+             border: 2px solid whitesmoke;
+            
+              
+          }
+  
+          .my-buttonPers:hover {
+              background-color: green;
+          }
+  
+          .my-buttonVehi {
+            background-color: grey;
+            color: white;
+            padding: 12px 20px;
+            /* border: none; */
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            margin-top: 50px;
+            border: 2px solid whitesmoke;
+           
+            
+        }
+  
+        .my-buttonVehi:hover {
+            background-color: green;
+        }

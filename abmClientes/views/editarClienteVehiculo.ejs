@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Cliente Lavadero oPreto </title> <!----Nombre Pagina Web-->
+
+
+
+    <style>
+
+    </style>
+
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script> <!--es para que funciones el Swal.fire-->
+    <script src="../Proyecto Lavadero Autos/validacion jQuery.js"></script>
+
+    <!-- <script src="./Metodos/funcionesCombo.js"></script> -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="/estiloNuevoCliente.css">
+
+
+
+
+</head>
+
+
+
+
+
+<body>
+
+    <!------------------- Animacion auto y nombre pagina----------------------------------------------*/ -->
+
+
+    <div class="container-fluid"> <!----Container ppal-->
+
+        <!------------------- Titulo----------------------------------------------*/ -->
+
+        <div class="row">
+
+            <h1>
+
+                <img src="/iconos/auto.png" alt="">
+
+                Nuevo Cliente
+
+            </h1>
+            <h3>| Gracias por elegirnos |</h3>
+        </div>
+
+
+        <!----------------------------------------------------------------------------------*/  -->
+
+
+        <!------------------- Alta nuevo cliente----------------------------------------------*/ -->
+
+
+        <div class="row">
+
+
+            <div class="container col-12">
+
+
+
+                <fieldset id="fieldSet">
+
+                    <legend class="reset">
+                        <h2>
+
+                            <img class="burbujas" src="./iconos/burbujas.png">
+                            Datos Personales
+
+                        </h2>
+                    </legend>
+
+
+
+
+                    <div id="flex">
+                        <form method="post" action="/editarClienteVehiculo" id="formCliente">
+
+                            <div class="borde">
+
+                                <label for="dni">DNI:</label>
+
+                                <input type="tel" id="dni" class="my-input" name="dni" value="<%= cp.dni %>" placeholder="Ingrese dni"
+                                    required>
+
+
+
+
+                                <label for="nombre">Nombre:</label>
+                                <input type="text" id="nombre" class="my-input"   value="<%= cp.nombre %>" name="nombre"
+                                    placeholder="Ingrese nombre" required>
+
+
+
+                                <label for="apellido">Apellido:</label>
+                                <input type="text" id="apellido" class="my-input" value="<%= cp.apellido %>" name="apellido"
+                                    placeholder="Ingrese apellido" required>
+
+
+                                <label for="celular">Celular:</label>
+                                <input type="tel" id="celular" class="my-input" value="<%= cp.celular %>" name="celular"
+                                    placeholder="Ingrese celular" required>
+
+
+
+                                <label for="email">e-m@il:</label>
+                                <input type="email" id="email" class="my-input" value="<%= cp.email %>" name="email"
+                                    placeholder="Ingrese e-mail" required>
+
+
+                                    <label for="patente">Patente:</label>
+                                    <input type="text" id="patente" class="my-input" value=
+                                    <% cp.vehiculos.forEach((marca) => { %>                           
+                                           <%= marca.patente %>                                   
+                                       <% }) %>
+                            </div>
+
+
+                            <!----------------------------BORDE VEHICULO----------------------*/  -->
+
+                            <div class="borde2">
+
+                                <div class="borde">
+                                    <table>
+
+                                        <tr>
+                                            <label for="radio">Vehiculo:</label>
+
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+                                                <label for="vehiculo"> 
+                                                    <input type="radio" name="vehiculo" value=<% cp.vehiculos.forEach((marca) => { %>                           
+                                                        <%= marca.tipoVehiculo %>                                   
+                                                    <% }) %>
+                                                    Automovil  
+                                                </label>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+                                                <label for="vehiculo">
+                                                    <input type="radio" name="vehiculo" value=<% cp.vehiculos.forEach((marca) => { %>                           
+                                                        <%= marca.tipoVehiculo %>                                   
+                                                    <% }) %>
+                                                    Motocicleta
+                                                </label>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+                                                <label for="vehiculo">
+                                                    <input type="radio" name="vehiculo" value=<% cp.vehiculos.forEach((marca) => { %>                           
+                                                        <%= marca.tipoVehiculo %>                                   
+                                                    <% }) %>
+                                                    Utilitario
+                                                </label>
+                                            </td>
+                                        </tr>
+
+
+
+                                    </table>
+
+                                </div>
+
+
+                                <!-- <div class="borde">
+                                    <label for="marca">Marca:</label>
+
+                                    <select name="marca" id="marca">
+                                        <option value="<%= cp.marca%>">Seleccione...</option>
+                                    </select>
+
+                                </div> -->
+<!-- 
+                                <div class="borde">
+                                    <label for="marca">Marca:</label>
+                                   value= <% cp.vehiculos.forEach(v => { %>
+                                    <%= v.año %>
+                                        
+                                      <% }) %>
+
+                                </div> -->
+
+
+                                <!-- <div class="borde">
+                                    <label for="modelo">Modelo:</label>
+
+                                    <select name="modelo" id=modelo>
+                                        <option value="<%= cp.vehiculos.modelo %>">Seleccione...</option>
+                                    </select>
+                                </div> -->
+
+                                <!-- <div class="borde">
+                                    <label for="modelo">Modelo:</label>
+                                  value=  <% cp.vehiculos.forEach(v => { %>
+                                    <%= "caca" %>
+                                    
+                                      <% }) %>
+
+                                </div> -->
+
+
+                                
+                                <!-- <div class="borde">
+                                    <label for="año">Año:</label>
+                                    <input type="text" name="año" size="6px;" value="<%= cp.vehiculos.año %>" id="año" class="my-input">
+
+                                </div> -->
+
+                                <!-- <div class="borde">
+                                    <label for="año">Año:</label>
+                                   value= <% cp.vehiculos.forEach(v => { %>
+                                    <%= v.año %>
+                                        
+                                      <% }) %>
+
+                                </div> -->
+
+                                
+
+
+
+
+                                <!-- <div class="borde">
+                                    <label for="patente">Patente:</label>
+                                    <input type="text" name="patente" size="6px;" value="<%= cp.patente %>" id="patente" class="my-input">
+
+                                </div> -->
+ 
+                              
+
+                                
+
+                            </div>
+
+                            <label for="botonVehiculos"></label>
+                            <button type="submit" id="botonVehiculos" class="my-buttonVehi">Enviar</button>
+
+                    </div>
+            </div>
+        </div>
+        </fieldset>
+
+
+    </div>
+
+
+    </fieldset>
+
+    </div>
+
+
+    </div>
+
+
+
+    <!---------------------------------------------------------------------------------------------*/  -->
+
+
+
+
+
+    <!----------------------------------------------------------------------------------------------------------*/  -->
+
+
+
+    </div> <!----FIN Container ppal-->
+
+</body>
+
+</html>

@@ -1,0 +1,121 @@
+<!-- npm install express express-session bcrypt
+ Paso 2: Crear los middlewares
+ middlewares/validarDatos.js
+Verifica que los campos del formulario no estén vacíos.
+
+js
+Copiar código
+export function validarDatos(req, res, next) {
+  const { email, password } = req.body;
+
+  if (!email || !password) {
+    return res.status(400).send(' Faltan datos de login');
+  }
+
+  next(); // pasa al siguiente middleware
+}
+ middlewares/autenticarUsuario.js
+Simula la validación de un usuario (en un caso real, buscarías en la base de datos).
+
+js
+Copiar código
+import bcrypt from 'bcrypt';
+
+const usuarios = [
+  { email: 'admin@ejemplo.com', passwordHash: await bcrypt.hash('1234', 10) }
+];
+
+export async function autenticarUsuario(req, res, next) {
+  const { email, password } = req.body;
+  const user = usuarios.find(u => u.email === email);
+
+  if (!user) {
+    return res.status(401).send(' Usuario no encontrado');
+  }
+
+  const match = await bcrypt.compare(password, user.passwordHash);
+  if (!match) {
+    return res.status(401).send(' Contraseña incorrecta');
+  }
+
+  req.user = user; // guardar el usuario para las siguientes rutas
+  next();
+}
+ Paso 3: Configurar Express y las rutas
+server.js
+js
+Copiar código
+import express from 'express';
+import session from 'express-session';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import { validarDatos } from './middlewares/validarDatos.js';
+import { autenticarUsuario } from './middlewares/autenticarUsuario.js';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const app = express();
+const PORT = 3000;
+
+// Middleware para leer body
+app.use(express.urlencoded({ extended: true }));
+
+// Configurar sesión
+app.use(session({
+  secret: 'claveSecreta',
+  resave: false,
+  saveUninitialized: true
+}));
+
+// Servir login.html
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'views', 'login.html'));
+});
+
+// Ruta de login con middlewares
+app.post('/login', validarDatos, autenticarUsuario, (req, res) => {
+  req.session.user = req.user.email;
+  res.redirect('/perfil');
+});
+
+// Middleware de protección de rutas
+function protegerRuta(req, res, next) {
+  if (!req.session.user) {
+    return res.redirect('/');
+  }
+  next();
+}
+
+// Página protegida
+app.get('/perfil', protegerRuta, (req, res) => {
+  res.send(` Bienvenido ${req.session.user}`);
+});
+
+// Logout
+app.get('/logout', (req, res) => {
+  req.session.destroy(() => res.redirect('/'));
+});
+
+// Iniciar servidor
+app.listen(PORT, () => console.log(`Servidor corriendo en http://localhost:${PORT}`));
+ views/login.html
+html
+Copiar código
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Login con Middleware</title>
+</head>
+<body>
+  <h2>Iniciar sesión</h2>
+  <form action="/login" method="POST">
+    <label>Email:</label>
+    <input type="email" name="email" required><br><br>
+
+    <label>Contraseña:</label>
+    <input type="password" name="password" required><br><br>
+
+    <button type="submit">Ingresar</button>
+  </form>
+</body>
+</html> -->

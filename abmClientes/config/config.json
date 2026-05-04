@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "pretouz",
+    "password": "Urfe0307",
+    "database": "lavaderoWebApi",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "pretouz",
+    "password": "Urfe0307",
+    "database": "lavaderoWebApi",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "pretouz",
+    "password": "Urfe0307",
+    "database": "lavaderoWebApi",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}

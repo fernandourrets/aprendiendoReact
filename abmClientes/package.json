@@ -1,0 +1,25 @@
+{
+  "name": "expresslavadero",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/index.js"
+  },
+  "keywords": [],
+  "author": "Este proyecto fue creado por el Negro Urrets y comenzo a darse forma una tarde del dia 26/09/25 - Vamos por mas!!!",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@tailwindcss/vite": "^4.2.4",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "morgan": "^1.10.1",
+    "mysql2": "^3.15.2",
+    "node-thermal-printer": "^4.5.0",
+    "nodemon": "^3.1.10",
+    "sequelize": "^6.37.8",
+    "sequelize-cli": "^6.6.5",
+    "tailwindcss": "^4.2.4",
+    "uuid": "^13.0.0"
+  }
+}
