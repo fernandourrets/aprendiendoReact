@@ -2,7 +2,7 @@
  /*Componentes*/
  import { useState, useEffect, use } from "react"
  import ButtonGroup from "@/components/common/buttonGroup"
- import Hero from "@/components/landing/Hero"
+
  import CustomCard from "@/components/common/CustomCard"
  import { useParams, useNavigate, useSearchParams } from "react-router-dom"
 
@@ -125,9 +125,7 @@ setSearchParams({ape: value})
     return(
     <>
 
-    <section id="Hero section">
-    <Hero/>
-    </section>
+  
                
     <section id="CategoryButton section">
         <ButtonGroup dataCategoria={categories} selectedItem={buscarCategoria} onClick={handleclick}/>
