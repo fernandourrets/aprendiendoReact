@@ -1,0 +1,79 @@
+{
+  "tipoVehiculos": [
+    { "id": 1, "tipoVehiculo": "Automóvil" },
+    { "id": 2, "tipoVehiculo": "Motocicleta" },
+    { "id": 3, "tipoVehiculo": "Utilitario" }
+  ],
+  "marcaVehiculos": [
+    { "id": 1, "marcaVehiculo": "Toyota",     "tipoVehiculoId": 1 },
+    { "id": 2, "marcaVehiculo": "Ford",        "tipoVehiculoId": 1 },
+    { "id": 3, "marcaVehiculo": "Chevrolet",   "tipoVehiculoId": 1 },
+    { "id": 4, "marcaVehiculo": "Volkswagen",  "tipoVehiculoId": 1 },
+    { "id": 5, "marcaVehiculo": "Honda",       "tipoVehiculoId": 2 },
+    { "id": 6, "marcaVehiculo": "Yamaha",      "tipoVehiculoId": 2 },
+    { "id": 7, "marcaVehiculo": "Renault",     "tipoVehiculoId": 3 },
+    { "id": 8, "marcaVehiculo": "Fiat",        "tipoVehiculoId": 3 }
+  ],
+  "modeloVehiculos": [
+    { "id": 1,  "modeloVehiculo": "Corolla",  "marcaVehiculoId": 1 },
+    { "id": 2,  "modeloVehiculo": "Hilux",    "marcaVehiculoId": 1 },
+    { "id": 3,  "modeloVehiculo": "Etios",    "marcaVehiculoId": 1 },
+    { "id": 4,  "modeloVehiculo": "Focus",    "marcaVehiculoId": 2 },
+    { "id": 5,  "modeloVehiculo": "Ranger",   "marcaVehiculoId": 2 },
+    { "id": 6,  "modeloVehiculo": "Ka",       "marcaVehiculoId": 2 },
+    { "id": 7,  "modeloVehiculo": "Onix",     "marcaVehiculoId": 3 },
+    { "id": 8,  "modeloVehiculo": "S10",      "marcaVehiculoId": 3 },
+    { "id": 9,  "modeloVehiculo": "Cruze",    "marcaVehiculoId": 3 },
+    { "id": 10, "modeloVehiculo": "Gol",      "marcaVehiculoId": 4 },
+    { "id": 11, "modeloVehiculo": "Polo",     "marcaVehiculoId": 4 },
+    { "id": 12, "modeloVehiculo": "Amarok",   "marcaVehiculoId": 4 },
+    { "id": 13, "modeloVehiculo": "CB190R",   "marcaVehiculoId": 5 },
+    { "id": 14, "modeloVehiculo": "CB300",    "marcaVehiculoId": 5 },
+    { "id": 15, "modeloVehiculo": "XRE300",   "marcaVehiculoId": 5 },
+    { "id": 16, "modeloVehiculo": "FZ25",     "marcaVehiculoId": 6 },
+    { "id": 17, "modeloVehiculo": "YBR125",   "marcaVehiculoId": 6 },
+    { "id": 18, "modeloVehiculo": "MT07",     "marcaVehiculoId": 6 },
+    { "id": 19, "modeloVehiculo": "Master",   "marcaVehiculoId": 7 },
+    { "id": 20, "modeloVehiculo": "Kangoo",   "marcaVehiculoId": 7 },
+    { "id": 21, "modeloVehiculo": "Ducato",   "marcaVehiculoId": 8 },
+    { "id": 22, "modeloVehiculo": "Fiorino",  "marcaVehiculoId": 8 }
+  ],
+  "clientes": [
+    { "id": 1, "dni": 30456789, "nombre": "Juan",   "apellido": "Pérez",     "celular": 3515001122, "email": "juan.perez@mail.com" },
+    { "id": 2, "dni": 25987654, "nombre": "María",  "apellido": "González",  "celular": 3515223344, "email": "maria.gonzalez@mail.com" },
+    { "id": 3, "dni": 33112233, "nombre": "Carlos", "apellido": "Rodríguez", "celular": 3516334455, "email": "carlos.rodriguez@mail.com" },
+    { "id": 4, "dni": 28765432, "nombre": "Laura",  "apellido": "Martínez",  "celular": 3517445566, "email": "laura.martinez@mail.com" },
+    { "id": 5, "dni": 35221144, "nombre": "Diego",  "apellido": "López",     "celular": 3518556677, "email": "diego.lopez@mail.com" }
+  ],
+  "vehiculos": [
+    { "id": 1, "año": 2022, "patente": "AB123CD", "clienteId": 1, "modeloVehiculoId": 1 },
+    { "id": 2, "año": 2020, "patente": "EF456GH", "clienteId": 2, "modeloVehiculoId": 7 },
+    { "id": 3, "año": 2021, "patente": "IJ789KL", "clienteId": 3, "modeloVehiculoId": 13 },
+    { "id": 4, "año": 2023, "patente": "MN012OP", "clienteId": 4, "modeloVehiculoId": 20 },
+    { "id": 5, "año": 2019, "patente": "QR345ST", "clienteId": 5, "modeloVehiculoId": 5 },
+    { "id": 6, "año": 2024, "patente": "UV678WX", "clienteId": null, "modeloVehiculoId": 11 }
+  ],
+  "alquileres": [
+    {
+      "id": 1, "clienteId": 1, "vehiculoId": 1,
+      "fechaInicio": "2026-04-28", "fechaFinPrevista": "2026-05-05", "fechaDevolucion": null,
+      "precioPorDia": 15000, "totalCalculado": null, "estado": "activo",
+      "observaciones": "Viaje de negocios",
+      "createdAt": "2026-04-28T10:00:00.000Z", "updatedAt": "2026-04-28T10:00:00.000Z"
+    },
+    {
+      "id": 2, "clienteId": 2, "vehiculoId": 2,
+      "fechaInicio": "2026-04-01", "fechaFinPrevista": "2026-04-07", "fechaDevolucion": "2026-04-07",
+      "precioPorDia": 12000, "totalCalculado": 84000, "estado": "finalizado",
+      "observaciones": null,
+      "createdAt": "2026-04-01T09:00:00.000Z", "updatedAt": "2026-04-07T18:00:00.000Z"
+    },
+    {
+      "id": 3, "clienteId": 3, "vehiculoId": 3,
+      "fechaInicio": "2026-03-15", "fechaFinPrevista": "2026-03-20", "fechaDevolucion": null,
+      "precioPorDia": 8000, "totalCalculado": null, "estado": "cancelado",
+      "observaciones": "Cancelado por el cliente",
+      "createdAt": "2026-03-15T14:00:00.000Z", "updatedAt": "2026-03-16T08:00:00.000Z"
+    }
+  ]
+}

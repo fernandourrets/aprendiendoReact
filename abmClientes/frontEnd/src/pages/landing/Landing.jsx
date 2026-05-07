@@ -1,6 +1,6 @@
  
  /*Componentes*/
- import { useState, useEffect, use } from "react"
+ import { useState, useEffect, useCallback } from "react"
  import ButtonGroup from "@/components/common/buttonGroup"
 
  import CustomCard from "@/components/common/CustomCard"
@@ -9,7 +9,6 @@
  /*Funciones*/
 import  {getClientes, getCliByCategorias}  from "@/lib/api/clientes"
 import { getCategories} from "@/lib/api/category"
-import { InputAddOn } from "@/components/common/inputs/inputAddon"
 
 export default function Landing() {
 
@@ -51,7 +50,7 @@ const fetchCategories = async () => {
 }
 /***************************************************************************** */
 
-const fetchFilterByApellido = () => {
+const fetchFilterByApellido = useCallback(() => {
 
     const filter= searchParams.get('ape')
 
@@ -61,10 +60,10 @@ const fetchFilterByApellido = () => {
         return
     }
 
-    const filterClientes = clientes.filter((e) => e.ape.toLowerCase().includes(filter.toLowerCase()))
+    const filterClientes = clientes.filter((e) => e.apellido.toLowerCase().includes(filter.toLowerCase()))
     setRenderCliCat(filterClientes)
 
-}
+}, [searchParams, clientes])
     
 /*****************************RENDERIZA SEGUN BOTONES CATEGORIA***********************/
 const fetchClientes = async () => {
@@ -108,7 +107,7 @@ useEffect(() => {
 /*********************INPUT BUSQUEDA************************************************************ */
 const handleclick=(buscarCategoria)=>{
 
-        navigate(`/${buscarCategoria}`)  
+        navigate(`/admin/clientes/categoria/${buscarCategoria}`)  
     }
 
 /*****************ESCUCHA CAMBIOS EN INPUT BUSQUEDA********************************************/
@@ -124,36 +123,30 @@ setSearchParams({ape: value})
 /********************RETORNO FUNCION*********************************************************/
     return(
     <>
-
-  
-               
     <section id="CategoryButton section">
         <ButtonGroup dataCategoria={categories} selectedItem={buscarCategoria} onClick={handleclick}/>
 
-        <div className="w-full max-w-md mx-auto my-6 px-4">
-  <div className="bg-gray-100 border border-gray-400 rounded-xl shadow-sm p-3 transition hover:shadow-md">
-    <InputAddOn inputType="Search" onChange={onChange} />
-  </div>
-</div>
-
+        <div className="w-full max-w-sm mx-auto my-4 px-4">
+          <input
+            type="search"
+            placeholder="Buscar por apellido…"
+            onChange={(e) => onChange(e.target.value)}
+            className="w-full bg-luxury-surface border border-gold/15 rounded-sm px-4 py-2.5 text-sm text-[#f0ede8] placeholder-luxury-muted focus:outline-none focus:border-gold/50 transition-colors"
+          />
+        </div>
     </section>
+
      <section id="CustomCard section">
-   
-    <div  className="mb-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4  p-10 flex flex-col gap-10">
-        {
-
-            renderCliCat && renderCliCat.length > 0 ? renderCliCat.map((e) => (
-                
-                <CustomCard cardClientes= {e}/>
-            )) : <p className="bg-red-500 text-white p-5">| No hay clientes registrados |</p>
-        }
-   
-    </div>    
+        <div className="mb-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 px-6">
+            {
+                renderCliCat && renderCliCat.length > 0
+                  ? renderCliCat.map((e) => (
+                      <CustomCard key={e.id} cardClientes={e}/>
+                    ))
+                  : <p className="text-luxury-muted text-sm col-span-full text-center py-10">No hay clientes registrados.</p>
+            }
+        </div>    
     </section>
-        
-    </> 
-)
-
+    </>
+  )
 }
-
- 

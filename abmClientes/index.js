@@ -1,13 +1,17 @@
+require('dotenv').config();
+const app = require('./app');
 
-const app= require('./app');
+async function main() {
+  if (process.env.USE_JSON_DATA === 'true') {
+    console.log('Modo JSON — sin conexión a base de datos');
+  } else {
+    const db = require('./models');
+    await db.sequelize.sync();
+    console.log('Base de datos sincronizada');
+  }
 
-const db = require('./models'); // Importa la instancia de Sequelize
-
-async function main(){
-    
-    await db.sequelize.sync(); // Sincroniza los modelos con la base de datos
-    await app.listen(app.get('port'));
-    console.log('Server listening on port', app.get('port'));
+  await app.listen(app.get('port'));
+  console.log(`Servidor corriendo en http://localhost:${app.get('port')}`);
 }
 
 main();

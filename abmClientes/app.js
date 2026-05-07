@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express')
 const morgan = require('morgan')
 const app= express()
@@ -23,6 +24,11 @@ app.use(express.json()) //para que entienda los datos que vienen en formato json
 
 
 //Routes
+
+app.use('/api/clientes', require('./routes/api/clientes'));
+app.use('/api/vehiculos', require('./routes/api/vehiculos'));
+app.use('/api/alquileres', require('./routes/api/alquileres'));
+app.use('/api/catalogos', require('./routes/api/catalogos'));
 
 app.use(require('./routes/index')); //carga las rutas del archivo index.js de la carpeta routes
 app.use(require('./routes/authentication')) // idem anterior 

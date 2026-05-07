@@ -1,9 +1,12 @@
 {
-  "name": "expresslavadero",
+  "name": "alquiler-vehiculos",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server/index.js",
   "scripts": {
-    "dev": "nodemon src/index.js"
+    "start": "node server/index.js",
+    "dev": "nodemon server/index.js",
+    "db:migrate": "sequelize-cli db:migrate",
+    "db:migrate:undo": "sequelize-cli db:migrate:undo:all"
   },
   "keywords": [],
   "author": "Este proyecto fue creado por el Negro Urrets y comenzo a darse forma una tarde del dia 26/09/25 - Vamos por mas!!!",
@@ -11,8 +14,10 @@
   "description": "",
   "dependencies": {
     "@tailwindcss/vite": "^4.2.4",
+    "dotenv": "^17.4.2",
     "ejs": "^3.1.10",
     "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.3",
     "morgan": "^1.10.1",
     "mysql2": "^3.15.2",
     "node-thermal-printer": "^4.5.0",

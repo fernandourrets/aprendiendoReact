@@ -1,73 +1,45 @@
-import {
-    Card,
-    CardAction,
-    CardContent,
-    CardDescription,
-    CardFooter,
-    CardHeader,
-    CardTitle,
-  } from "@/components/ui/card"
+import { Link } from "react-router-dom"
+import { categoryMap } from "@/lib/maps/category"
+import { Car, ChevronRight } from "lucide-react"
+import { getCategoria } from "@/lib/api/clientes"
 
-  import TitleDesc from "@/components/common/TitleDesc"
-  import { Link } from "react-router-dom"
-  import  {categoryMap}  from "@/lib/maps/category"
-  import { Badge } from "@/components/ui/badge"
-  
-  export default function CustomCard({cardClientes}) {
+const DEFAULT_CAT = { label: 'Sin categoría', icon: Car }
 
-const {dni, nom, ape, cat} = cardClientes
-const IconComponent= categoryMap[cat].icon
+export default function CustomCard({ cardClientes }) {
+  const { id, dni, nombre, apellido } = cardClientes
+  const cat = getCategoria(cardClientes)
+  const catInfo = categoryMap[cat] || DEFAULT_CAT
+  const IconComponent = catInfo.icon
 
+  return (
+    <Link to={`/admin/clientes/${id}`} className="group block animate-fade-in-up">
+      <div className="luxury-card rounded-xl p-6 flex flex-col gap-5 h-full">
 
-    return (
+        {/* Top row: icon badge + category label */}
+        <div className="flex items-start justify-between">
+          <div className="p-2.5 rounded-lg bg-gold/10 border border-gold/20">
+            <IconComponent className="w-5 h-5 text-gold" />
+          </div>
+          <span className="text-[10px] font-semibold tracking-[0.18em] uppercase text-gold border border-gold/25 px-2.5 py-1 rounded-sm">
+            {catInfo.label}
+          </span>
+        </div>
 
-     
+        {/* Client info */}
+        <div className="text-left">
+          <p className="text-[10px] text-luxury-muted tracking-[0.2em] uppercase mb-1">Cliente</p>
+          <h3 className="text-base font-bold text-[#f0ede8] group-hover:text-gold transition-colors duration-300 leading-tight">
+            {nombre} {apellido}
+          </h3>
+          <p className="text-xs text-luxury-muted mt-1.5">DNI {dni}</p>
+        </div>
 
-      <Card className="w-[380px] rounded-2xl bg-gradient-to-br from-blue-500 to-blue-700 text-white shadow-xl shadow-gray-600/50 hover:shadow-gray-700/70 transition-all duration-300 hover:-translate-y-1">
-  
-        <CardHeader className="flex flex-row items-start justify-between">
-
-          <div>
-            <CardTitle className="text-xl font-bold">
-            
-              <TitleDesc title="Datos Cliente" description=" Vehiculo" />
-            </CardTitle>
-            <CardDescription className="text-blue-100">
-            
-            </CardDescription>
-          </div>  
-  
-          <CardAction>
-          <IconComponent className="mb-1 ml-5"></IconComponent>
-            <Badge className= {categoryMap[cat].color}>{categoryMap[cat].label}
-            <IconComponent></IconComponent>
-            </Badge>
-          </CardAction>
-        </CardHeader>
-  
-        <CardContent className="space-y-2">
-
-        <p className="text-sm text-blue-100">
-           DNI: {dni} 
-          </p>
-          <p className="text-sm text-blue-100">
-           Nombre: {nom} 
-          </p>
-          <p className="text-sm text-blue-100">
-          Apellido: {ape}
-          </p>
-        </CardContent>
-  
-        <CardFooter className="border-t border-gray-300/30 pt-4">
-          <p className="text-xs text-gray-200">
-            
-            Ultima actualizacion: 20 / 04 / 2026
-            <Link to={`/clientes/${dni}`} className="text-blue-300 hover:underline ml-2">
-              + info</Link>
-          </p>
-        </CardFooter>
-  
-      </Card>
-      
-    )
-  }
+        {/* Footer */}
+        <div className="mt-auto pt-4 border-t border-gold/10 flex items-center justify-between">
+          <span className="text-[11px] text-luxury-muted tracking-wide">Ver perfil</span>
+          <ChevronRight className="w-4 h-4 text-gold/60 group-hover:text-gold group-hover:translate-x-1 transition-all duration-200" />
+        </div>
+      </div>
+    </Link>
+  )
+}
